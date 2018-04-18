@@ -8,6 +8,7 @@ import tw.core.exception.OutOfRangeAnswerException;
  * Created by jxzhong on 2017/5/17.
  */
 public class AnswerGenerator {
+
     private final RandomIntGenerator randomIntGenerator;
 
     @Inject

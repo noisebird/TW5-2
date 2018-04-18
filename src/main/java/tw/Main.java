@@ -15,7 +15,6 @@ public class Main {
 
         Injector injector = createInjector(new GuessNumberModule());
         GameController gameController = injector.getInstance(GameController.class);
-
         gameController.beginGame();
         gameController.play(new GuessInputCommand());
 

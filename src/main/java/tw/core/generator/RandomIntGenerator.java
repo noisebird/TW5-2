@@ -17,7 +17,6 @@ public class RandomIntGenerator {
         if (digitmax < numbersOfNeed) {
             throw new IllegalArgumentException("Can't ask for more numbers than are available");
         }
-
         Random rng = new Random();
         Set<String> generated = new LinkedHashSet<>();
         while (generated.size() < numbersOfNeed) {
