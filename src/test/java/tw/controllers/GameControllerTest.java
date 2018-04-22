@@ -110,8 +110,6 @@ public class GameControllerTest {
                 "Game Status: success");
         verify(inputGuess,times(6)).input();
     }
-
-
     @Test
     public void should_game_success_then_return_the_status() throws Exception {
         Game game = mock(Game.class);

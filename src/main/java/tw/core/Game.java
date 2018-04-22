@@ -48,16 +48,13 @@ public class Game {
 
     //检查状态
     public String checkStatus() {
-        String status;
 //       这里有问题，需要把条件的顺序换一下
-        if (checkCorrectGuessResult()) {
-            status = SUCCESS;
-        } else if (guessResults.size() >= MAX_TIMES) {
-            status = FAIL;
-        } else {
-            status = CONTINUE;
-        }
-        return status;
+        if (checkCorrectGuessResult())
+            return SUCCESS;
+        if (guessResults.size() >= MAX_TIMES)
+            return FAIL;
+         return CONTINUE;
+
     }
 
     private boolean checkCorrectGuessResult() {

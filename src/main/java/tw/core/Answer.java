@@ -22,14 +22,13 @@ public class Answer {
 
     public static Answer createAnswer(String inputStr) {
         Answer answer = new Answer();
-        List<String> inputList = Arrays.stream(inputStr.split(" ")).collect(Collectors.toList());
-        answer.setNumList(inputList);
+        answer.setNumList(Arrays.stream(inputStr.split(" ")).collect(Collectors.toList()));
         return answer;
     }
 
     public void validate() throws OutOfRangeAnswerException {
         long validatedNum = numList.stream()
-                .map(num -> parseInt(num))
+                .map(Integer::parseInt)
                 .distinct()
                 .filter(num -> num < 10).count();
         if (validatedNum < numList.size()) {
