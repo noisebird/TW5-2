@@ -12,25 +12,13 @@ import java.io.InputStreamReader;
  */
 public class GuessInputCommand implements InputCommand {
 
-    private BufferedReader bufferedReader;
-
-    {
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-    }
-
-    public GuessInputCommand() {
-    }
+    public static final String INPUT_HINT = "------Please input your answer as x x x x , x <10 ------";
+    private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     @Override
     public Answer input() throws IOException {
-        System.out.println("------Please input your answer as x x x x , x <10 ------");
+        System.out.println(INPUT_HINT);
         String input = bufferedReader.readLine();
-        Answer answer = null;
-        if (new InputValidator().validate(input)) {
-            answer = Answer.createAnswer(input);
-        } else {
-            answer = input();
-        }
-        return answer;
+        return new InputValidator().validate(input) ? Answer.createAnswer(input) : input();
     }
 }
